@@ -1,7 +1,7 @@
-from orm_extra.utils.get_models import get_models
+from orm.utils.get_models import get_models
 
 
-def get_by_uuid(uuid_value, field_name='pk'):
+def get_by_uuid(uuid_value, field_name='uuid'):
     for model_object in get_models():
 
         if not hasattr(model_object, field_name):

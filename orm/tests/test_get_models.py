@@ -1,6 +1,6 @@
 from unittest import TestCase
-from orm_extra.tests.models import TestCaseModel
-from orm_extra.utils import get_models
+from orm.models import TestCaseModel
+from orm.utils import get_models
 
 
 class GetModelsTestCase(TestCase):
@@ -9,10 +9,11 @@ class GetModelsTestCase(TestCase):
         self.ignore_modules = [None, 'django']
 
     def test(self):
+        #self.assertEqual(get_models(), list())
         self.assertTrue(type(get_models()) == list)
 
     def test_one(self):
-        self.assertEquals(get_models(self.ignore_modules), [TestCaseModel])
+        self.assertTrue(TestCaseModel in get_models(self.ignore_modules))
 
     def test_use_modules(self):
         self.ignore_modules.append(TestCaseModel.__module__)
