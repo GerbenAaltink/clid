@@ -1,10 +1,10 @@
 from django.conf import settings as django_settings
-from django.db.models import UUIDField, Model
+from django.db import models
 
 
-class TestCaseModel(Model):
+class TestCaseModel(models.Model):
 
-    uuid = UUIDField(primary_key=True)
+    uuid = models.UUIDField(primary_key=True)
 
     class Meta:
         app_label = 'orm'

@@ -9,7 +9,6 @@ class GetModelsTestCase(TestCase):
         self.ignore_modules = [None, 'django']
 
     def test(self):
-        #self.assertEqual(get_models(), list())
         self.assertTrue(type(get_models()) == list)
 
     def test_one(self):
