@@ -8,8 +8,8 @@ def get_by_uuid(uuid_value, field_name='pk'):
             continue
 
         try:
-            model_object.objects.get(**{field_name:uuid_value})
+            found = model_object.objects.get(**{field_name:uuid_value})
         except model_object.DoesNotExist:
             continue
 
-        return model_object
+        return found
