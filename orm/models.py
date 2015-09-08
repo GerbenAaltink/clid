@@ -7,4 +7,4 @@ class TestCaseModel(Model):
     uuid = UUIDField(primary_key=True)
 
     class Meta:
-        app_label = 'orm_tests'
+        app_label = 'orm'
