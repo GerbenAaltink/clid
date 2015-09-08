@@ -1,6 +1,7 @@
 from unittest import TestCase
 from orm_extra.utils import get_by_uuid
 
+
 class GetByUUIDTestCase(TestCase):
 
     def setUp(self):

@@ -1,6 +1,6 @@
 from unittest import TestCase
 from orm_extra.tests.models import TestCaseModel
-from orm_extra.utils import BaseModel, get_models
+from orm_extra.utils import get_models
 
 
 class GetModelsTestCase(TestCase):
