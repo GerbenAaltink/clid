@@ -10,10 +10,10 @@ def test_dict():
 
     for x in range(0,50):
         data.append({
-            'column_1': str(x * 2),
-            'column_2': str(x * 3),
-            'column_3': str(x * 4),
-            'column_4': str(x * 5)
+            'column_1': 'A{}'.format(x),
+            'column_2': 'B{}'.format(x),
+            'column_3': 'C{}'.format(x),
+            'column_4': 'D{}'.format(x)
         })
 
     return data
@@ -28,13 +28,16 @@ def main(stdscr):
     curses.init_pair(1, curses.COLOR_BLACK, curses.COLOR_WHITE)
     curses.init_pair(10, curses.COLOR_RED, curses.COLOR_WHITE)
 
-    stdscr.nodelay(True)
+    stdscr.nodelay(False)
     stdscr.leaveok(True)
     stdscr.clear()
     stdscr.refresh()
     curses.delay_output(1)
 
     key_buffer = []
+
+    y, x = stdscr.getmaxyx()
+    grid = Grid(stdscr, y - 20, x - 20, 10, 10, test_dict())
 
     while True:
 
@@ -58,8 +61,7 @@ def main(stdscr):
                 break
 
             y, x = stdscr.getmaxyx()
-
-            Grid(stdscr, y, x, 0, 0, test_dict())
+            grid.update( y - 20, x - 20, key)
 
             if key is not None:
                 key_buffer.append(key)
